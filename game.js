@@ -13,6 +13,7 @@ const buyBombButton = document.getElementById('buyBomb');
 const buyFleetButton = document.getElementById('buyFleet');
 const messageElement = document.getElementById('message');
 const effectsContainer = document.getElementById('effectsContainer');
+const backgroundImage = document.getElementById('background-image');
 
 // Event Listeners for Buttons
 clickButton.addEventListener('click', () => {
@@ -20,6 +21,7 @@ clickButton.addEventListener('click', () => {
     updateAirplaneCount();
     displayMessage('You earned an Airplane!');
     showEffect('plane'); // Show a plane animation when clicked
+    updateBackground(); // Update background image based on progress
 });
 
 buyJetButton.addEventListener('click', () => {
@@ -30,6 +32,7 @@ buyJetButton.addEventListener('click', () => {
         updateAirplaneCount();
         displayMessage('You bought a Jet!');
         showEffect('jet'); // Show a jet animation
+        updateBackground(); // Update background image based on progress
     } else {
         displayMessage('You need 10 Airplanes to buy a Jet.');
     }
@@ -43,6 +46,7 @@ buyBombButton.addEventListener('click', () => {
         updateAirplaneCount();
         displayMessage('You bought a Bomb!');
         showEffect('bomb'); // Show a bomb animation
+        updateBackground(); // Update background image based on progress
     } else {
         displayMessage('You need 50 Airplanes to buy a Bomb.');
     }
@@ -56,6 +60,7 @@ buyFleetButton.addEventListener('click', () => {
         updateAirplaneCount();
         displayMessage('You bought a Fleet of Planes!');
         showEffect('fleet'); // Show a fleet animation
+        updateBackground(); // Update background image based on progress
     } else {
         displayMessage('You need 100 Airplanes to buy a Fleet.');
     }
@@ -93,6 +98,17 @@ function showEffect(type) {
     setTimeout(() => {
         effectsContainer.removeChild(effect);
     }, 2000);
+}
+
+// Update the background image based on progress
+function updateBackground() {
+    if (airplaneCount >= 1000) {
+        backgroundImage.src = "https://path/to/advanced_image.png";  // Image representing more progress
+    } else if (airplaneCount >= 500) {
+        backgroundImage.src = "https://path/to/medium_image.png";  // Image representing intermediate progress
+    } else {
+        backgroundImage.src = "https://static.wikia.nocookie.net/cookieclicker/images/4/41/Bakery.png.png/revision/latest/scale-to-width-down/1919?cb=20241105192506";  // Starting image
+    }
 }
 
 // Initialize
