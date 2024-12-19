@@ -12,12 +12,14 @@ const buyJetButton = document.getElementById('buyJet');
 const buyBombButton = document.getElementById('buyBomb');
 const buyFleetButton = document.getElementById('buyFleet');
 const messageElement = document.getElementById('message');
+const effectsContainer = document.getElementById('effectsContainer');
 
 // Event Listeners for Buttons
 clickButton.addEventListener('click', () => {
     airplaneCount += airplanesPerClick;
     updateAirplaneCount();
     displayMessage('You earned an Airplane!');
+    showEffect('plane'); // Show a plane animation when clicked
 });
 
 buyJetButton.addEventListener('click', () => {
@@ -27,6 +29,7 @@ buyJetButton.addEventListener('click', () => {
         airplanesPerClick += 2; // Jets increase planes per click
         updateAirplaneCount();
         displayMessage('You bought a Jet!');
+        showEffect('jet'); // Show a jet animation
     } else {
         displayMessage('You need 10 Airplanes to buy a Jet.');
     }
@@ -39,6 +42,7 @@ buyBombButton.addEventListener('click', () => {
         airplanesPerClick += 5; // Bombs increase planes per click
         updateAirplaneCount();
         displayMessage('You bought a Bomb!');
+        showEffect('bomb'); // Show a bomb animation
     } else {
         displayMessage('You need 50 Airplanes to buy a Bomb.');
     }
@@ -51,6 +55,7 @@ buyFleetButton.addEventListener('click', () => {
         airplanesPerClick += 10; // Fleet increases planes per click
         updateAirplaneCount();
         displayMessage('You bought a Fleet of Planes!');
+        showEffect('fleet'); // Show a fleet animation
     } else {
         displayMessage('You need 100 Airplanes to buy a Fleet.');
     }
@@ -75,6 +80,19 @@ function checkUpgradeButtons() {
     buyJetButton.disabled = airplaneCount < 10;
     buyBombButton.disabled = airplaneCount < 50;
     buyFleetButton.disabled = airplaneCount < 100;
+}
+
+// Show the animation for the upgrades
+function showEffect(type) {
+    const effect = document.createElement('img');
+    effect.classList.add('effect');
+    effect.src = `${type}.png`;  // Assuming image names are 'jet.png', 'bomb.png', 'fleet.png'
+    effectsContainer.appendChild(effect);
+
+    // Remove the effect after animation completes
+    setTimeout(() => {
+        effectsContainer.removeChild(effect);
+    }, 2000);
 }
 
 // Initialize
