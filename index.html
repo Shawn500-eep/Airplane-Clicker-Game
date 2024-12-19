@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airplane Clicker Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Airplane Clicker</h1>
+        </header>
+
+        <!-- Main stats container -->
+        <div class="counter">
+            <span id="airplaneCount">0</span> Airplanes
+        </div>
+
+        <!-- Click for Airplanes -->
+        <div class="click-area">
+            <button id="clickButton">Click for Airplanes!</button>
+        </div>
+
+        <!-- Upgrade area with grid layout -->
+        <div class="upgrades">
+            <h2>Upgrades</h2>
+            <div class="upgrade-grid">
+                <button id="buyJet" class="upgrade-button">Buy Jet - 10 Airplanes</button>
+                <button id="buyBomb" class="upgrade-button">Buy Bomb - 50 Airplanes</button>
+                <button id="buyFleet" class="upgrade-button">Buy Fleet - 100 Airplanes</button>
+            </div>
+        </div>
+
+        <!-- Message area -->
+        <div class="messages">
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
