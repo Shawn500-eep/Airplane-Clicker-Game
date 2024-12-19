@@ -9,10 +9,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
 }
 
 .game-container {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     padding: 30px;
@@ -20,6 +21,7 @@ body {
     text-align: center;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
 }
 
 /* Header styles */
@@ -90,7 +92,26 @@ button:disabled {
     color: #e74c3c;
 }
 
-/* Visual effects for upgrades */
+/* Background container with evolving images */
+#background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#background-image {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.5;
+}
+
+/* Effects Container for visual feedback of upgrades */
 #effectsContainer {
     position: relative;
     height: 150px;
@@ -98,6 +119,7 @@ button:disabled {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .effect {
